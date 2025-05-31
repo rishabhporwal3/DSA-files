@@ -1,0 +1,26 @@
+public static void sort(int[] arr) {
+        int first = 0;
+        int second = 1;
+        int swapCheck = 0;
+        
+        while (true) {
+            if (arr[first] > arr[second]) {
+                int temp = arr[first];
+                arr[first] = arr[second];
+                arr[second] = temp;
+                swapCheck = 1;
+            }
+            
+            if (second < arr.length -1) {
+                second++;
+                first++;
+            } else {
+                if (swapCheck == 0) {
+                    break;
+                }
+                first = 0;
+                second = 1;
+                swapCheck = 0;
+            }
+        }
+    }
