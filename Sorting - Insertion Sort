@@ -1,0 +1,15 @@
+class SortingNames {
+  public static void insertionSortNames(String[] names) {
+        int n = names.length;
+        for (int counter1 = 1; counter1 < n; counter1++) {
+            String key = names[counter1];
+            int counter2 = counter1 - 1;
+
+            while (counter2 >= 0 && names[counter2].compareTo(key) > 0) {
+                names[counter2 + 1] = names[counter2];
+                counter2--;
+            }
+            names[counter2 + 1] = key;
+        }
+    }
+}
