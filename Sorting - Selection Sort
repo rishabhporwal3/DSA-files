@@ -1,0 +1,22 @@
+public static void selectionSort(int[] arr) {
+        int n = arr.length;
+        boolean swap;
+        
+        for (int counter1 = 0; counter1 < n - 1; counter1++) {
+            swap = false;
+            // find the minimum element in the unsorted part of the array
+            int minIndex = counter1;
+            for (int counter2 = counter1 + 1; counter2 < n; counter2++) {
+                if (arr[minIndex] > arr[counter2]) {
+                    minIndex = counter2;
+                    swap = true;
+                }
+            }
+            // swap the found minimum element with the first element of the unsorted part
+            if (swap) {
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[counter1];
+                arr[counter1] = temp;
+            }
+        }
+}
