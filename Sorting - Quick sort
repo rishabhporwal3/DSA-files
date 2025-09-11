@@ -1,0 +1,37 @@
+public static void quickSort(int[] arr, int lb, int ub) {
+  if (lb < ub) {
+      int loc = partition(arr, lb, ub);
+      quickSort(arr, lb, loc - 1);
+      quickSort(arr, loc + 1, ub);
+
+  }
+}
+
+public static int partition(int[] arr, int lb, int rb ) {
+    int pivot = arr[lb];
+    int start = lb;
+    int end = rb;
+
+    while (start < end) {
+        while (arr[start] <= pivot) {
+            start++;
+        }
+
+        while (arr[end] > pivot) {
+            end--;
+        }
+
+        if (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+        }
+    }
+    // swapping pivot element to correct pos.
+    int temp = arr[lb];
+    arr[lb] = arr[end];
+    arr[end] = temp;
+
+    return end;
+
+}
